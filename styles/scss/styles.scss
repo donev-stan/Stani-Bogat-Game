@@ -1,0 +1,29 @@
+@use "./components/start-panel";
+@use "./components/play-panel";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	min-height: 800px;
+
+	margin: 0 auto;
+	max-width: 1760px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: auto;
+}
+
+.container {
+	margin: 20px;
+
+	display: flex;
+	width: 80%;
+
+	border: 1px solid black;
+}
