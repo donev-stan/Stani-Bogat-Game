@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./styles/css/styles.css">
 
     <script type="module" src="./scripts/index.js"></script>
@@ -13,8 +14,14 @@
 
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper unselectable">
         <div class="container">
+
+            <div id="modal-end-game">
+                <div class="modal-content">
+                    <img src="./images/end_game.png">
+                </div>
+            </div>
 
             <div class="start-panel">
                 <button id="start-game-btn">Start Game</button>
@@ -22,28 +29,83 @@
 
             <div class="play-panel">
                 <div class="container">
-                    <div class="hints">
 
-                    </div>
+                    <div class="upper-box">
 
-                    <div class="stages">
+                        <div class="timer-box"></div>
 
-                    </div>
+                        <div class="middle-box">
+                            <div class="hints">
+                                <div class="hint">
+                                    <img src="./images/hints/audience.png" class="hint-askAudience">
+                                    <img src="./images/hints/joker_x.png" class="hint-taken hint-askAudienceTaken">
+                                </div>
+                                <div class="hint">
+                                    <img src="./images/hints/50_50.png" class="hint-fiftyFifty">
+                                    <img src="./images/hints/joker_x.png" class="hint-taken hint-fiftyFiftyTaken">
+                                </div>
+                                <div class="hint">
+                                    <img src="./images/hints/call.png" class="hint-callAfriend">
+                                    <img src="./images/hints/joker_x.png" class="hint-taken hint-callAfriendTaken">
+                                </div>
+                            </div>
 
-                    <div class="q&a">
-                        <div class="question">
-
+                            <div class="logo">
+                                <img src="./images/logo.png">
+                            </div>
                         </div>
 
-                        <div class="answers">
-
+                        <div class="stages-box">
+                            <div class="stages">
+                                <div class="stage stage-15">15 &nbsp;&nbsp;&nbsp;&nbsp; 100 000 лв</div>
+                                <div class="stage stage-14">14 &nbsp;&nbsp;&nbsp;&nbsp; 50 000 лв</div>
+                                <div class="stage stage-13">13 &nbsp;&nbsp;&nbsp;&nbsp; 30 000 лв</div>
+                                <div class="stage stage-12">12 &nbsp;&nbsp;&nbsp;&nbsp; 20 000 лв</div>
+                                <div class="stage stage-11">11 &nbsp;&nbsp;&nbsp;&nbsp; 10 000 лв</div>
+                                <div class="stage stage-10">10 &nbsp;&nbsp;&nbsp;&nbsp; 5 000 лв</div>
+                                <div class="stage stage-9">&nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 000 лв</div>
+                                <div class="stage stage-8">&nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 000 лв</div>
+                                <div class="stage stage-7">&nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 500 лв</div>
+                                <div class="stage stage-6">&nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1000 лв</div>
+                                <div class="stage stage-5">&nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 500 лв</div>
+                                <div class="stage stage-4">&nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 лв</div>
+                                <div class="stage stage-3">&nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 300 лв</div>
+                                <div class="stage stage-2">&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 200 лв</div>
+                                <div class="stage stage-1 stage-active">&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 лв
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="lower-box">
+                        <div class="questionAndAnswers">
+                            <div class="question">
+                                <div class="question-text">...</div>
+                            </div>
+
+                            <div class="answers">
+                                <div id="questionIndex">1</div>
+
+                                <div class="upper-answers">
+                                    <div class="answer answer-A"><button class="answer-btn answer-btn-A">...</button>
+                                    </div>
+                                    <div class="answer answer-B"><button class="answer-btn answer-btn-B">...</button>
+                                    </div>
+                                </div>
+
+                                <div class="lower-answers">
+                                    <div class="answer answer-C"><button class="answer-btn answer-btn-C">...</button>
+                                    </div>
+                                    <div class="answer answer-D"><button class="answer-btn answer-btn-D">...</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
         </div>
-
     </div>
 
 </body>

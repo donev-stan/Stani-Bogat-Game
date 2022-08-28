@@ -1,3 +1,5 @@
+import populateQuestions from "./populateQuestions.js";
+
 const BASE_URL = "https://opentdb.com/api.php";
 
 /**
@@ -9,7 +11,7 @@ const fetchQuestions = (difficulty = "easy") => {
 
 	return fetch(url)
 		.then((response) => response.json())
-		.then((data) => data.results)
+		.then((data) => populateQuestions(data.results))
 		.catch((error) => console.error(error));
 };
 

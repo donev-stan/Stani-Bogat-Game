@@ -1,22 +1,20 @@
 @use "./components/start-panel";
 @use "./components/play-panel";
 
+@use "./components/modal-end-game";
+
 * {
 	margin: 0;
 	padding: 0;
 }
 
 .wrapper {
-	min-height: 800px;
-
 	margin: 0 auto;
 	max-width: 1760px;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	height: auto;
 }
 
 .container {
@@ -24,6 +22,20 @@
 
 	display: flex;
 	width: 80%;
+}
 
-	border: 1px solid black;
+.unselectable {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media (max-width: 1300px) {
+	.container {
+		margin: 0;
+		width: 100%;
+	}
 }

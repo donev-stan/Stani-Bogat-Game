@@ -1,16 +1,10 @@
-import { questions } from "./variables.js";
+import { questions } from "../variables.js";
 
 const populateQuestions = (data) => {
-	// const transformed_questions = transformData(data);
-	// const shuffled_questions_answers = shuffleAnswers(transformed_questions);
+	const transformed_questions = transformData(data);
+	const shuffled_questions_answers = shuffleAnswers(transformed_questions);
 
-	// shuffled_questions_answers.forEach((question) => questions.push(question));
-
-	shuffleAnswers(transformData(data)).forEach((question) =>
-		questions.push(question)
-	);
-
-	console.log(questions);
+	shuffled_questions_answers.forEach((question) => questions.push(question));
 };
 
 const transformData = (data) => {
