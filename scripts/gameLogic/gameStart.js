@@ -1,15 +1,15 @@
-import fetchData from "./services/fetchData.js";
-import { displayPlayPanel } from "./visualizations/renderPanels.js";
-import renderNextQuestionAndAnswers from "./visualizations/renderNextQuestionAndAnswers.js";
+import fetchData from "../services/fetchData.js";
+import { displayPlayPanel } from "../visualizations/renderPanels.js";
+import renderNextQuestionAndAnswers from "../visualizations/renderNextQuestionAndAnswers.js";
 import {
 	getNextStageDifficulty,
 	hints,
 	questions,
 	resetInitialGameValues,
 	stagesDifficulty,
-} from "./variables.js";
-import { modalElements } from "./visualizations/elements.js";
-import renderResetStages from "./visualizations/renderResetStages.js";
+} from "../variables.js";
+import { modalElements } from "../visualizations/elements.js";
+import { renderResetStages } from "../visualizations/renderStage.js";
 
 const startGame = async () => {
 	resetInitialGameValues();

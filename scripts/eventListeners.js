@@ -5,7 +5,7 @@ import {
 	modalElements,
 } from "./visualizations/elements.js";
 
-import startGame from "./gameStart.js";
+import startGame from "./gameLogic/gameStart.js";
 import checkAnswer from "./gameLogic/checkAnswer.js";
 import { askAudience, fiftyFifty, callAfriend } from "./gameLogic/hints.js";
 

@@ -20,7 +20,7 @@
 
 					top: 0%;
 					left: 0%;
-					transform: translate(20%, 90%);
+					transform: translate(20%, 70%);
 				}
 
 				.play-again-btn {
@@ -34,7 +34,7 @@
 					width: 195px;
 					height: 43px;
 
-					@include backgroundImage("../../../images/buttonC.png");
+					@include backgroundImage("../../../images/button.png");
 
 					border-radius: 50px;
 
@@ -47,12 +47,12 @@
 					p {
 						position: fixed;
 
-						font-size: 1.2rem;
+						font-size: 1.1rem;
 						font-weight: bold;
 
 						top: 0%;
 						left: 52%;
-						transform: translate(-50%, 40%);
+						transform: translate(-50%, 30%);
 					}
 				}
 			}

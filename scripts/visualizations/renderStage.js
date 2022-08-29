@@ -8,4 +8,12 @@ const renderNextStage = () => {
 	stageElements.getStage(stage).classList.add("stage-active");
 };
 
-export default renderNextStage;
+const renderResetStages = () => {
+	stageElements.allStages().forEach((stage, i) => {
+		stage.classList.remove("stage-done");
+		stage.classList.remove("stage-active");
+		if (i === 14) stage.classList.add("stage-active");
+	});
+};
+
+export { renderNextStage, renderResetStages };

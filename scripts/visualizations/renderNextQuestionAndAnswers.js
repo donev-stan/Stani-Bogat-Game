@@ -8,7 +8,7 @@ import {
 	stagesDifficulty,
 } from "../variables.js";
 import { questionAndAnswers } from "./elements.js";
-import renderNextStage from "./renderNextStage.js";
+import { renderNextStage } from "./renderStage.js";
 
 const renderNextQuestionAndAnswers = () => {
 	const currentQuestion = getCurrentQuestion();

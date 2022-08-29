@@ -41,12 +41,13 @@
 						border: none;
 						background: transparent;
 
-						@include backgroundImage("../../../images/buttonC.png");
+						@include backgroundImage("../../../images/button.png");
 						@include buttonRadius;
 
 						font-size: 1rem;
 						font-weight: bold;
 						color: white;
+						text-shadow: 0px 1px 3px #000000;
 
 						&:hover {
 							cursor: pointer;
@@ -64,7 +65,7 @@
 					color: white;
 
 					width: 65%;
-					height: 180px;
+					height: 190px;
 				}
 			}
 
@@ -246,6 +247,16 @@
 							.answer-option {
 								font-weight: bold;
 								color: #ffb300;
+							}
+
+							&:hover:not(.answer-correct) {
+								.answer-option {
+									color: black;
+								}
+
+								@include backgroundImage(
+									"../../../images/questionAndAnswers/answer_selected.png"
+								);
 							}
 						}
 
