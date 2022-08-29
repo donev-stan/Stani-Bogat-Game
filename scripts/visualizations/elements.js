@@ -14,6 +14,8 @@ const questionAndAnswers = {
 
 	answers: () => document.querySelectorAll(".answer-btn"),
 
+	correctAnswerBtn: (option) => document.querySelector(`.answer-btn-${option}`),
+
 	answerA: () => document.querySelector(".answer-btn-A"),
 	answerB: () => document.querySelector(".answer-btn-B"),
 	answerC: () => document.querySelector(".answer-btn-C"),
@@ -36,10 +38,9 @@ const hintElements = {
 	callAfriendTaken: () => document.querySelector(".hint-callAfriendTaken"),
 };
 
-export {
-	startPanelElements,
-	mainElements,
-	questionAndAnswers,
-	stageElements,
-	hintElements,
+const modalElements = {
+	modalEndGame: () => document.getElementById("modal-end-game"),
+	playAgainBtn: () => document.querySelector(".play-again-btn"),
 };
+
+export { startPanelElements, mainElements, questionAndAnswers, stageElements, hintElements, modalElements };

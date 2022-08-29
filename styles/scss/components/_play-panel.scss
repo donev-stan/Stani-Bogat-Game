@@ -1,3 +1,5 @@
+@use "../abstracts/index.scss" as *;
+
 .play-panel {
 	display: none;
 	width: 100%;
@@ -5,26 +7,65 @@
 	.container {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
-		margin: 0 !important;
 
-		padding: 30px 40px;
+		padding-top: 20px;
 
 		background-image: url("../../../images/background.jpg");
 		background-position: 47% 0%;
 
 		.upper-box {
 			display: flex;
+			gap: 50px;
 			flex: 2;
-			margin-bottom: 50px;
+			margin-bottom: 30px;
 
 			.timer-box {
-				flex: 1;
 				display: flex;
-				justify-content: center;
+				flex-direction: column;
+				gap: 150px;
 				align-items: center;
-
 				min-width: 300px;
+
+				.stop-game-btn-box {
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					padding-top: 40px;
+
+					width: 100%;
+
+					#stop-game-btn {
+						width: 195px;
+						height: 42px;
+
+						border: none;
+						background: transparent;
+
+						@include backgroundImage("../../../images/buttonC.png");
+						@include buttonRadius;
+
+						font-size: 1rem;
+						font-weight: bold;
+						color: white;
+
+						&:hover {
+							cursor: pointer;
+						}
+					}
+				}
+
+				.inner-timer-box {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					border: 3px solid yellow;
+					border-radius: 100%;
+					color: white;
+
+					width: 65%;
+					height: 180px;
+				}
 			}
 
 			.middle-box {
@@ -77,15 +118,13 @@
 				.stages {
 					display: flex;
 					flex-direction: column;
-					// position: fixed;
-					// position: absolute;
+					gap: 1px;
 
 					.stage {
 						display: flex;
 
-						background-image: url("../../../images/stages/stage.png");
-						background-repeat: no-repeat;
-						background-position: center;
+						@include backgroundImage("../../../images/stages/stage.png");
+
 						width: 200px;
 						height: 40px;
 
@@ -106,9 +145,7 @@
 					}
 
 					.stage-active {
-						background-image: url("../../../images/stages/stage_active.png");
-						background-repeat: no-repeat;
-						background-position: center;
+						@include backgroundImage("../../../images/stages/stage_active.png");
 
 						color: white;
 					}
@@ -129,23 +166,23 @@
 				gap: 20px;
 
 				min-width: 913px;
+
 				.question {
-					background-image: url("../../../images/test.png");
-					background-repeat: no-repeat;
-					background-position: center;
+					@include backgroundImage("../../../images/questionAndAnswers/question.png");
 
 					height: 110px;
-
-					color: white;
-					font-size: 1.2rem;
 
 					display: flex;
 					justify-content: center;
 					align-items: center;
 
-					padding: 0 155px;
-
 					.question-text {
+						width: 65%;
+						text-align: center;
+
+						color: white;
+						font-size: 1.2rem;
+
 						overflow-wrap: break-word;
 						word-break: break-all;
 					}
@@ -171,13 +208,13 @@
 						display: flex;
 					}
 
-					.answer-A,
-					.answer-C {
+					.answer-box-A,
+					.answer-box-C {
 						display: flex;
 						justify-content: flex-end;
 					}
 
-					.answer {
+					.answer-box {
 						flex: 1;
 						display: flex;
 						align-items: center;
@@ -197,22 +234,14 @@
 							min-width: 400px;
 							min-height: 55px;
 
-							// overflow-wrap: break-word;
-							// word-break: break-all;
-							// overflow: hidden;
-
 							cursor: pointer;
 							border: none;
-							border-top-left-radius: 40px;
-							border-bottom-left-radius: 40px;
-							border-top-right-radius: 40px;
-							border-bottom-right-radius: 40px;
+
+							@include buttonRadius;
 
 							background-color: transparent;
 
-							background-image: url("../../../images/questionAndAnswers/answer.png");
-							background-repeat: no-repeat;
-							background-position: center;
+							@include backgroundImage("../../../images/questionAndAnswers/answer.png");
 
 							.answer-option {
 								font-weight: bold;
@@ -221,50 +250,15 @@
 						}
 
 						.answer-selected {
-							background-image: url("../../../images/questionAndAnswers/answer_selected.png");
-							background-repeat: no-repeat;
-							background-position: center;
+							@include backgroundImage(
+								"../../../images/questionAndAnswers/answer_selected.png"
+							);
 						}
 
 						.answer-correct {
-							background-image: url("../../../images/questionAndAnswers/answer_correct.png");
-							background-repeat: no-repeat;
-							background-position: center;
+							@include backgroundImage("../../../images/questionAndAnswers/answer_correct.png");
 						}
 					}
-				}
-			}
-		}
-	}
-}
-
-@media (max-width: 1000px) {
-	.play-panel {
-		.container {
-			.upper-box {
-				flex-direction: column;
-				flex-wrap: wrap;
-
-				.middle-box {
-					width: 100%;
-					// flex-grow: 12;
-
-					.logo {
-						order: 1;
-					}
-
-					.hints {
-						order: 2;
-					}
-				}
-
-				.timer-box {
-					order: 3;
-					border: 1px solid yellow;
-				}
-
-				.stages-box {
-					order: 4;
 				}
 			}
 		}

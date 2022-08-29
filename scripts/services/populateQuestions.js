@@ -14,12 +14,7 @@ const transformData = (data) => {
 		return {
 			question,
 			correct_answer,
-			answers: [
-				correct_answer,
-				incorrect_answers[0],
-				incorrect_answers[1],
-				incorrect_answers[2],
-			],
+			answers: [correct_answer, incorrect_answers[0], incorrect_answers[1], incorrect_answers[2]],
 		};
 	});
 };

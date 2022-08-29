@@ -1,41 +1,40 @@
-import startGame from "../gameStart.js";
-import { questions, stages } from "../variables.js";
-import renderNext from "../visualizations/renderNext.js";
+import { getCurrentQuestion, incrementCurrentStage, removeAnsweredQuestion } from "../variables.js";
+import { modalElements, questionAndAnswers } from "../visualizations/elements.js";
+import renderNextQuestionAndAnswers from "../visualizations/renderNextQuestionAndAnswers.js";
 
-const checkAnswer = (event) => {
-	const currentQuestion = questions[0];
+const checkAnswer = (event, chosenAnswer) => {
+	const { correct_answer_option } = getCurrentQuestion();
 
-	let answer_option;
-	let selectedBtn;
+	const isSpanSelected = event.target.tagName === "SPAN";
+	let selectedBtn = isSpanSelected ? event.target.parentElement : event.target;
 
-	if (event.target.tagName === "SPAN") {
-		selectedBtn = event.target.parentElement;
-		answer_option = event.target.textContent.slice(0, 1);
-	} else {
-		selectedBtn = event.target;
-		answer_option = event.target.firstChild.textContent.slice(0, 1);
-	}
-
+	disableAllButtons();
 	displaySelectedAnswer(selectedBtn);
 
 	setTimeout(() => {
-		if (currentQuestion.correct_answer_option === answer_option) {
+		if (correct_answer_option === chosenAnswer) {
+			removeAnsweredQuestion();
+			incrementCurrentStage();
+
 			displayCorrectAnswer(selectedBtn);
 
 			setTimeout(() => {
-				stages.shift();
-				questions.shift();
-				renderNext();
 				removeCorrectAnswer(selectedBtn);
+				renderNextQuestionAndAnswers();
 			}, 1000);
 		} else {
-			// display the correct answer
-			setTimeout(() => {
-				startGame();
-				// display modal - endGame
-			}, 1000);
+			questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.add("answer-correct");
+
+			modalElements.modalEndGame().style.display = "flex";
+			// setTimeout(() => {
+			// 	// questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.remove("correct");
+			// }, 1000);
 		}
-	}, 200);
+	}, 300);
+};
+
+const disableAllButtons = () => {
+	questionAndAnswers.answers().forEach((answerBtn) => (answerBtn.disabled = true));
 };
 
 const displaySelectedAnswer = (selectedBtn) => {
@@ -53,4 +52,4 @@ const removeCorrectAnswer = (selectedBtn) => {
 	// selectedBtn.classList.remove("answer-selected");
 };
 
-export { checkAnswer };
+export default checkAnswer;

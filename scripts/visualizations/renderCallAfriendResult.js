@@ -9,4 +9,5 @@ const renderCallAfriendResult = (message) => {
 const displayHintTaken = () => {
 	hintElements.callAfriendTaken().style.display = "flex";
 };
+
 export default renderCallAfriendResult;

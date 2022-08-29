@@ -1,9 +1,42 @@
 const questions = [];
+const getCurrentQuestion = () => questions[0];
+const removeAnsweredQuestion = () => questions.shift();
 
-const stages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+let stage = 1;
+const getCurrentStage = () => stage;
+const incrementCurrentStage = () => stage++;
+
+const stageWinnings = [
+	100, 200, 300, 400, 500, 1000, 1500, 2000, 3000, 5000, 10000, 20000, 30000, 50000, 100000,
+];
 
 const stagesDifficulty = ["easy", "medium", "hard"];
+const getNextStageDifficulty = () => stagesDifficulty.shift();
 
 const hints = ["ask-audience", "fifty-fifty", "call-a-friend"];
 
-export { questions, stages, stagesDifficulty, hints };
+const resetInitialGameValues = () => {
+	questions.splice(0);
+
+	stage = 1;
+
+	stagesDifficulty.splice(0);
+	stagesDifficulty.push("easy", "medium", "hard");
+
+	hints.splice(0);
+	hints.push("ask-audience", "fifty-fifty", "call-a-friend");
+};
+
+export {
+	questions,
+	getCurrentQuestion,
+	removeAnsweredQuestion,
+	stage,
+	getCurrentStage,
+	incrementCurrentStage,
+	stageWinnings,
+	stagesDifficulty,
+	getNextStageDifficulty,
+	hints,
+	resetInitialGameValues,
+};

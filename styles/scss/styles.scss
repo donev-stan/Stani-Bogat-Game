@@ -8,20 +8,17 @@
 	padding: 0;
 }
 
+body {
+	background-color: rgb(23, 5, 87);
+}
+
 .wrapper {
 	margin: 0 auto;
-	max-width: 1760px;
+	width: fit-content;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.container {
-	margin: 20px;
-
-	display: flex;
-	width: 80%;
 }
 
 .unselectable {
@@ -31,11 +28,4 @@
 	-moz-user-select: none; /* Old versions of Firefox */
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-}
-
-@media (max-width: 1300px) {
-	.container {
-		margin: 0;
-		width: 100%;
-	}
 }

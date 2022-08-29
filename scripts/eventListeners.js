@@ -2,37 +2,29 @@ import {
 	startPanelElements,
 	questionAndAnswers,
 	hintElements,
+	modalElements,
 } from "./visualizations/elements.js";
 
-import { checkAnswer } from "./gameLogic/checkAnswer.js";
-import { askAudience, fiftyFifty, callAfriend } from "./gameLogic/hints.js";
-
 import startGame from "./gameStart.js";
+import checkAnswer from "./gameLogic/checkAnswer.js";
+import { askAudience, fiftyFifty, callAfriend } from "./gameLogic/hints.js";
 
 const attachEventListeners = () => {
 	startPanelElements.startBtn().addEventListener("click", () => startGame());
 
 	// Answers
-	questionAndAnswers
-		.answerA()
-		.addEventListener("click", (event) => checkAnswer(event));
-
-	questionAndAnswers
-		.answerB()
-		.addEventListener("click", (event) => checkAnswer(event));
-
-	questionAndAnswers
-		.answerC()
-		.addEventListener("click", (event) => checkAnswer(event));
-
-	questionAndAnswers
-		.answerD()
-		.addEventListener("click", (event) => checkAnswer(event));
+	questionAndAnswers.answerA().addEventListener("click", (event) => checkAnswer(event, "A"));
+	questionAndAnswers.answerB().addEventListener("click", (event) => checkAnswer(event, "B"));
+	questionAndAnswers.answerC().addEventListener("click", (event) => checkAnswer(event, "C"));
+	questionAndAnswers.answerD().addEventListener("click", (event) => checkAnswer(event, "D"));
 
 	// Hints
 	hintElements.askAudience().addEventListener("click", () => askAudience());
 	hintElements.fiftyFifty().addEventListener("click", () => fiftyFifty());
 	hintElements.callAfriend().addEventListener("click", () => callAfriend());
+
+	// Modal
+	modalElements.playAgainBtn().addEventListener("click", () => startGame());
 };
 
 export default attachEventListeners;

@@ -1,14 +1,21 @@
 import fetchQuestions from "../services/fetchData.js";
-import { questions, stages, stagesDifficulty } from "../variables.js";
+import {
+	getCurrentQuestion,
+	getCurrentStage,
+	getNextStageDifficulty,
+	questions,
+	stage,
+	stagesDifficulty,
+} from "../variables.js";
 import { questionAndAnswers } from "./elements.js";
-import renderStage from "./renderStage.js";
+import renderNextStage from "./renderNextStage.js";
 
-const renderNext = () => {
-	if (questions.length === 1) fetchQuestions(stagesDifficulty.shift());
+const renderNextQuestionAndAnswers = () => {
+	const currentQuestion = getCurrentQuestion();
 
-	const currentQuestion = questions[0];
+	if (questions.length === 1) fetchQuestions(getNextStageDifficulty());
 
-	console.log(currentQuestion.correct_answer);
+	console.log(`Correct Answer: \n ${currentQuestion.correct_answer}`);
 
 	questionAndAnswers.question().innerHTML = currentQuestion.question;
 
@@ -25,17 +32,18 @@ const renderNext = () => {
 		btn.disabled = false;
 		btn.style.cursor = "pointer";
 		btn.classList.remove("answer-selected");
+		btn.classList.remove("answer-correct");
 	});
 
 	console.log(currentQuestion);
 
-	questionAndAnswers.questionIndex().innerHTML = stages[0];
+	questionAndAnswers.questionIndex().innerHTML = getCurrentStage();
 
-	if (stages[0] !== 1) renderStage();
+	if (stage !== 1) renderNextStage();
 };
 
 const renderAnswer = (answerOption, answer) => {
 	return `<span class="answer-option">${answerOption}:&nbsp;</span>${answer}`;
 };
 
-export default renderNext;
+export default renderNextQuestionAndAnswers;

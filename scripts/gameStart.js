@@ -1,13 +1,22 @@
 import fetchData from "./services/fetchData.js";
 import { displayPlayPanel } from "./visualizations/renderPanels.js";
-import renderNext from "./visualizations/renderNext.js";
-import { hints, questions, stages, stagesDifficulty } from "./variables.js";
+import renderNextQuestionAndAnswers from "./visualizations/renderNextQuestionAndAnswers.js";
+import {
+	getNextStageDifficulty,
+	hints,
+	questions,
+	resetInitialGameValues,
+	stagesDifficulty,
+} from "./variables.js";
+import { modalElements } from "./visualizations/elements.js";
+import renderResetStages from "./visualizations/renderResetStages.js";
 
 const startGame = async () => {
-	setInitialGameValues();
-	await fetchData(stagesDifficulty.shift());
+	resetInitialGameValues();
+	await fetchData(getNextStageDifficulty());
 	displayPlayPanel();
-	renderNext();
+	renderResetStages();
+	renderNextQuestionAndAnswers();
 };
 
 const setInitialGameValues = () => {
@@ -21,6 +30,8 @@ const setInitialGameValues = () => {
 
 	hints.splice(0);
 	hints.push("ask-audience", "fifty-fifty", "call-a-friend");
+
+	modalElements.modalEndGame().style.display = "none";
 };
 
 export default startGame;
