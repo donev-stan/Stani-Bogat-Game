@@ -5,12 +5,14 @@ import {
 	getNextStageDifficulty,
 	questions,
 	stage,
-	stagesDifficulty,
+	startTimer,
 } from "../variables.js";
 import { questionAndAnswers } from "./elements.js";
 import { renderNextStage } from "./renderStage.js";
 
 const renderNextQuestionAndAnswers = () => {
+	startTimer();
+
 	const currentQuestion = getCurrentQuestion();
 
 	if (questions.length === 1) fetchQuestions(getNextStageDifficulty());

@@ -1,0 +1,48 @@
+@use "../abstracts/index.scss" as *;
+
+#modal-call-a-friend {
+	@include modalProperties;
+
+	.modal-content {
+		@include modalContentProperties;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 355px;
+		height: 285px;
+
+		border: 3px solid white;
+		border-radius: 6px;
+
+		background-color: rgb(23, 5, 87);
+
+		img {
+			position: absolute;
+			top: -30px;
+		}
+
+		.call-a-friend-text {
+			font-size: 1.2rem;
+			color: white;
+		}
+
+		.close-call-a-friend-modal {
+			position: absolute;
+			bottom: -22px;
+
+			color: white;
+			font-size: 1rem;
+			text-shadow: $textShadow;
+			cursor: pointer;
+
+			width: 195px;
+			height: 42px;
+
+			border: none;
+			background: transparent;
+			@include backgroundImage("../../../images/button.png");
+		}
+	}
+}

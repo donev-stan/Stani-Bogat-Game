@@ -23,3 +23,11 @@
 	border-top-right-radius: 40px;
 	border-bottom-right-radius: 40px;
 }
+
+@mixin modalContentProperties {
+	position: fixed;
+
+	top: 0%;
+	left: 51%;
+	transform: translate(-49%, 70%);
+}

@@ -10,13 +10,19 @@ import {
 } from "../variables.js";
 import { modalElements } from "../visualizations/elements.js";
 import { renderResetStages } from "../visualizations/renderStage.js";
+import renderResetHints from "../visualizations/renderResetHints.js";
 
 const startGame = async () => {
+	document.querySelector(".logo-img").classList.add("loading");
+
 	resetInitialGameValues();
 	await fetchData(getNextStageDifficulty());
 	displayPlayPanel();
 	renderResetStages();
+	renderResetHints();
 	renderNextQuestionAndAnswers();
+
+	document.querySelector(".logo-img").classList.remove("loading");
 };
 
 const setInitialGameValues = () => {

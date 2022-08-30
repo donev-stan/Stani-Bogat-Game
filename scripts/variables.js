@@ -1,3 +1,5 @@
+import { modalElements, questionAndAnswers } from "./visualizations/elements.js";
+
 const questions = [];
 const getCurrentQuestion = () => questions[0];
 const removeAnsweredQuestion = () => questions.shift();
@@ -14,6 +16,23 @@ const stagesDifficulty = ["easy", "medium", "hard"];
 const getNextStageDifficulty = () => stagesDifficulty.shift();
 
 const hints = ["ask-audience", "fifty-fifty", "call-a-friend"];
+const removeHint = (hintName) => hints.splice(hints.indexOf(hintName), 1);
+
+let timer;
+const startTimer = () => {
+	let timerValue = 20;
+
+	timer = setInterval(() => {
+		timerValue--;
+
+		if (timerValue <= 0) {
+			clearInterval(timer);
+			modalElements.modalEndGame().style.display = "flex";
+		}
+
+		document.getElementById("timer-text").innerHTML = `${timerValue} <br> sec`;
+	}, 1000);
+};
 
 const resetInitialGameValues = () => {
 	questions.splice(0);
@@ -38,5 +57,8 @@ export {
 	stagesDifficulty,
 	getNextStageDifficulty,
 	hints,
+	removeHint,
+	timer,
+	startTimer,
 	resetInitialGameValues,
 };

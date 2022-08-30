@@ -1,4 +1,4 @@
-import { questions, hints, stagesDifficulty } from "../variables.js";
+import { questions, hints, stagesDifficulty, getCurrentQuestion, removeHint } from "../variables.js";
 import { questionAndAnswers } from "../visualizations/elements.js";
 import renderCallAfriendResult from "../visualizations/renderCallAfriendResult.js";
 import renderFiftyFiftyResult from "../visualizations/renderFiftyFiftyResult.js";
@@ -18,9 +18,7 @@ const fiftyFifty = () => {
 	const current_question = questions[0];
 
 	while (current_question.answers.length > 2) {
-		const correct_answer_index = current_question.answers.indexOf(
-			current_question.correct_answer
-		);
+		const correct_answer_index = current_question.answers.indexOf(current_question.correct_answer);
 
 		const rndIndex = Math.floor(Math.random() * 4);
 
@@ -35,9 +33,9 @@ const fiftyFifty = () => {
 const callAfriend = () => {
 	if (!hints.includes("call-a-friend")) return;
 
-	hints.splice(hints.indexOf("call-a-friend"), 1);
+	removeHint("call-a-friend");
 
-	const current_question = questions[0];
+	const current_question = getCurrentQuestion();
 
 	const correct_answer = current_question.correct_answer;
 
@@ -71,18 +69,12 @@ const callAfriend = () => {
 
 			if (giveCorrectAnswer) {
 				if (btnText === correct_answer) {
-					const answerOption = answerBtn.firstChild.textContent.slice(
-						0,
-						1
-					);
+					const answerOption = answerBtn.firstChild.textContent.slice(0, 1);
 					finalAnswer = `I think the answer is ${answerOption}`;
 				}
 			} else if (btnText) {
 				if (btnText !== correct_answer) {
-					const answerOption = answerBtn.firstChild.textContent.slice(
-						0,
-						1
-					);
+					const answerOption = answerBtn.firstChild.textContent.slice(0, 1);
 					finalAnswer = `I think the answer is ${answerOption}`;
 				}
 			}
@@ -93,10 +85,7 @@ const callAfriend = () => {
 				const btnText = answerBtn.textContent.slice(3);
 
 				if (btnText === correct_answer) {
-					const answerOption = answerBtn.firstChild.textContent.slice(
-						0,
-						1
-					);
+					const answerOption = answerBtn.firstChild.textContent.slice(0, 1);
 					finalAnswer = `I think the answer is ${answerOption}`;
 				}
 			});

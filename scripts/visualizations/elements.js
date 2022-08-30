@@ -41,6 +41,10 @@ const hintElements = {
 const modalElements = {
 	modalEndGame: () => document.getElementById("modal-end-game"),
 	playAgainBtn: () => document.querySelector(".play-again-btn"),
+
+	modalCallAfriendHint: () => document.getElementById("modal-call-a-friend"),
+	modalCallAfriendText: () => document.querySelector(".call-a-friend-text"),
+	modalCallAfriendCloseBtn: () => document.querySelector(".close-call-a-friend-modal"),
 };
 
 export { startPanelElements, mainElements, questionAndAnswers, stageElements, hintElements, modalElements };

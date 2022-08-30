@@ -1,8 +1,16 @@
-import { getCurrentQuestion, incrementCurrentStage, removeAnsweredQuestion } from "../variables.js";
+import {
+	getCurrentQuestion,
+	getCurrentStage,
+	incrementCurrentStage,
+	removeAnsweredQuestion,
+	timer,
+} from "../variables.js";
 import { modalElements, questionAndAnswers } from "../visualizations/elements.js";
 import renderNextQuestionAndAnswers from "../visualizations/renderNextQuestionAndAnswers.js";
 
 const checkAnswer = (event, chosenAnswer) => {
+	clearInterval(timer);
+
 	const { correct_answer_option } = getCurrentQuestion();
 
 	const isSpanSelected = event.target.tagName === "SPAN";
@@ -18,10 +26,16 @@ const checkAnswer = (event, chosenAnswer) => {
 
 			displayCorrectAnswer(selectedBtn);
 
+			if (getCurrentStage() === 6) {
+				console.log("You secured a price! 500лв");
+			} else if (getCurrentStage() === 11) {
+				console.log("You secured a price! 5 000лв");
+			}
+
 			setTimeout(() => {
 				removeCorrectAnswer(selectedBtn);
 				renderNextQuestionAndAnswers();
-			}, 1000);
+			}, 850);
 		} else {
 			questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.add("answer-correct");
 

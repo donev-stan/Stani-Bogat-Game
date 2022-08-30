@@ -1,4 +1,58 @@
+@use "../abstracts/index.scss" as *;
+
 .start-panel {
-	display: flex;
-	justify-content: center;
+	.container {
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		gap: 150px;
+		align-items: center;
+		min-height: 1130px;
+		min-width: 800px;
+
+		img {
+			margin-top: 120px;
+		}
+
+		@include backgroundImage("../../../images/background.jpg");
+
+		#start-game-btn {
+			width: 255px;
+			height: 60px;
+
+			border: 2px solid white;
+
+			border: none;
+			@include buttonRadius;
+
+			background-color: transparent;
+			@include backgroundImage("../../../images/start_btn.png");
+
+			font-size: 1.2rem;
+			font-weight: bold;
+
+			color: white;
+			text-shadow: $textShadow;
+
+			&:hover {
+				transition: all 0.2s;
+				cursor: pointer;
+				@include backgroundImage("../../../images/start_btn_hover.png");
+			}
+		}
+
+		.loading {
+			animation: loading 1s linear 0s infinite normal forwards;
+		}
+	}
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }

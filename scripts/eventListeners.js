@@ -22,6 +22,9 @@ const attachEventListeners = () => {
 	hintElements.askAudience().addEventListener("click", () => askAudience());
 	hintElements.fiftyFifty().addEventListener("click", () => fiftyFifty());
 	hintElements.callAfriend().addEventListener("click", () => callAfriend());
+	modalElements
+		.modalCallAfriendCloseBtn()
+		.addEventListener("click", () => (modalElements.modalCallAfriendHint().style.display = "none"));
 
 	// Modal
 	modalElements.playAgainBtn().addEventListener("click", () => startGame());
