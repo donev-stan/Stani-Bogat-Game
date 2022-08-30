@@ -1,4 +1,4 @@
-import { modalElements, questionAndAnswers } from "./visualizations/elements.js";
+import { modalElements } from "./visualizations/elements.js";
 
 const questions = [];
 const getCurrentQuestion = () => questions[0];
