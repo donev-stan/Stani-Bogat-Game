@@ -8,6 +8,7 @@ import {
 	timer,
 } from "../variables.js";
 import { modalElements, questionAndAnswers } from "../visualizations/elements.js";
+import renderEndGameModal from "../visualizations/renderEndGameModal.js";
 import renderNextQuestionAndAnswers from "../visualizations/renderNextQuestionAndAnswers.js";
 
 const checkAnswer = (event, chosenAnswer) => {
@@ -36,8 +37,7 @@ const checkAnswer = (event, chosenAnswer) => {
 			}
 
 			if (getCurrentStage() === 16) {
-				modalElements.modalEndGame().style.display = "flex";
-				document.getElementById("money-to-go").textContent = "100 000";
+				return renderEndGameModal("game-won");
 			}
 
 			setTimeout(() => {
@@ -47,16 +47,7 @@ const checkAnswer = (event, chosenAnswer) => {
 		} else {
 			loadWrongAnswer().play();
 			questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.add("answer-correct");
-
-			modalElements.modalEndGame().style.display = "flex";
-
-			if (getCurrentStage() <= 5) {
-				document.getElementById("money-to-go").textContent = "0";
-			} else if (getCurrentStage() > 5 && getCurrentStage() <= 10) {
-				document.getElementById("money-to-go").textContent = "500";
-			} else if (getCurrentStage() > 10 && getCurrentStage() < 15) {
-				document.getElementById("money-to-go").textContent = "5 000";
-			}
+			renderEndGameModal("wrong-answer");
 		}
 	}, 500);
 

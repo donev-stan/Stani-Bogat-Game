@@ -2,7 +2,7 @@ import { volume } from "../variables.js";
 
 const loadLetsPlaySound = () => {
 	const audio = loadAudio("sounds/lets-play.mp3");
-	audio.volume = volume;
+	audio.volume = volume !== 0 ? 0.1 : volume;
 	return audio;
 };
 
@@ -14,13 +14,13 @@ const loadMainTheme = () => {
 
 const loadWrongAnswer = () => {
 	const audio = loadAudio("sounds/wrong-answer.mp3");
-	audio.volume = volume;
+	audio.volume = volume !== 0 ? 0.1 : volume;
 	return audio;
 };
 
 const loadCorrectAnswer = () => {
 	const audio = loadAudio("sounds/correct-answer.mp3");
-	audio.volume = volume;
+	audio.volume = volume !== 0 ? 0.1 : volume;
 	return audio;
 };
 

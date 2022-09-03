@@ -12,7 +12,9 @@ const fetchQuestions = (difficulty = "easy") => {
 	return fetch(url)
 		.then((response) => response.json())
 		.then((data) => populateQuestions(data.results))
-		.catch((error) => console.error(error));
+		.catch((error) => {
+			throw new Error(error.message);
+		});
 };
 
 export default fetchQuestions;

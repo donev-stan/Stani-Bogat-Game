@@ -9,7 +9,8 @@ import {
 import startGame from "./gameLogic/gameStart.js";
 import checkAnswer from "./gameLogic/checkAnswer.js";
 import { askAudience, fiftyFifty, callAfriend } from "./gameLogic/hints.js";
-import { getCurrentStage, toggleMuteSounds, stageWinnings } from "./variables.js";
+import { toggleMuteSounds } from "./variables.js";
+import renderEndGameModal from "./visualizations/renderEndGameModal.js";
 
 const attachEventListeners = () => {
 	startPanelElements.startBtn().addEventListener("click", () => startGame());
@@ -35,11 +36,7 @@ const attachEventListeners = () => {
 	// Modal
 	modalElements.playAgainBtn().addEventListener("click", () => startGame());
 
-	mainElements.stopGameBtn().addEventListener("click", () => {
-		modalElements.modalEndGame().style.display = "flex";
-		document.getElementById("money-to-go").textContent = stageWinnings[getCurrentStage() - 2] || 0;
-	});
-
+	mainElements.stopGameBtn().addEventListener("click", () => renderEndGameModal("leaving"));
 	mainElements.gameSoundsBtn().addEventListener("click", () => toggleMuteSounds());
 };
 

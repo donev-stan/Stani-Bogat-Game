@@ -6,6 +6,7 @@ import {
 	loadThirdStageAudio,
 } from "./music/sounds.js";
 import { mainElements, modalElements } from "./visualizations/elements.js";
+import renderEndGameModal from "./visualizations/renderEndGameModal.js";
 
 const questions = [];
 const getCurrentQuestion = () => questions[0];
@@ -35,7 +36,7 @@ const startTimer = () => {
 
 		if (timerValue <= 0) {
 			clearInterval(timer);
-			modalElements.modalEndGame().style.display = "flex";
+			renderEndGameModal("wrong-answer");
 		}
 
 		if (timerValue <= 60) document.getElementById("timer-text").innerHTML = `${timerValue} <br> sec`;
