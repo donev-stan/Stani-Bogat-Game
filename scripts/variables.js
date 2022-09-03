@@ -1,4 +1,11 @@
-import { modalElements } from "./visualizations/elements.js";
+import {
+	loadFirstStageAudio,
+	loadFourthStageAudio,
+	loadLetsPlaySound,
+	loadSecondStageAudio,
+	loadThirdStageAudio,
+} from "./music/sounds.js";
+import { mainElements, modalElements } from "./visualizations/elements.js";
 
 const questions = [];
 const getCurrentQuestion = () => questions[0];
@@ -20,7 +27,8 @@ const removeHint = (hintName) => hints.splice(hints.indexOf(hintName), 1);
 
 let timer;
 const startTimer = () => {
-	let timerValue = 20;
+	let timerValue = 61;
+	// stage === 1 ? (timerValue = 63) : (timerValue = 61);
 
 	timer = setInterval(() => {
 		timerValue--;
@@ -30,8 +38,40 @@ const startTimer = () => {
 			modalElements.modalEndGame().style.display = "flex";
 		}
 
-		document.getElementById("timer-text").innerHTML = `${timerValue} <br> sec`;
+		if (timerValue <= 60) document.getElementById("timer-text").innerHTML = `${timerValue} <br> sec`;
 	}, 1000);
+};
+
+let volume = 0.3;
+
+const letsPlayAudio = loadLetsPlaySound();
+const firstStageAudio = loadFirstStageAudio();
+const secondStageAudio = loadSecondStageAudio();
+const thirdStageAudio = loadThirdStageAudio();
+const fourthStageAudio = loadFourthStageAudio();
+
+const sounds = {
+	letsPlayAudio,
+	firstStageAudio,
+	secondStageAudio,
+	thirdStageAudio,
+	fourthStageAudio,
+};
+
+const toggleMuteSounds = () => {
+	if (volume !== 0) {
+		volume = 0;
+		mainElements.gameSoundsBtn().src = "./images/mute.png";
+	} else {
+		volume = 0.3;
+		mainElements.gameSoundsBtn().src = "./images/unmute.png";
+	}
+
+	letsPlayAudio.volume = volume;
+	firstStageAudio.volume = volume;
+	secondStageAudio.volume = volume;
+	thirdStageAudio.volume = volume;
+	fourthStageAudio.volume = volume;
 };
 
 const resetInitialGameValues = () => {
@@ -44,6 +84,11 @@ const resetInitialGameValues = () => {
 
 	hints.splice(0);
 	hints.push("ask-audience", "fifty-fifty", "call-a-friend");
+
+	firstStageAudio.pause();
+	secondStageAudio.pause();
+	thirdStageAudio.pause();
+	fourthStageAudio.pause();
 };
 
 export {
@@ -61,4 +106,7 @@ export {
 	timer,
 	startTimer,
 	resetInitialGameValues,
+	sounds,
+	volume,
+	toggleMuteSounds,
 };

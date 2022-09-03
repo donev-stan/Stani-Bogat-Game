@@ -148,11 +148,10 @@
 }
 .play-panel .container .upper-box .middle-box .hints .hint .hint-taken {
   position: absolute;
-  top: 8px;
-  left: 9px;
+  top: 5px;
+  left: 1px;
+  width: 90px;
   border-radius: 50%;
-  padding: 8px;
-  margin: -8px 0 0 -9px;
   display: none;
   cursor: not-allowed;
 }
@@ -287,12 +286,12 @@
   font-weight: bold;
   color: #ffb300;
 }
-.play-panel .container .lower-box .questionAndAnswers .answers .answer-box .answer-btn:hover:not(.answer-correct) {
+.play-panel .container .lower-box .questionAndAnswers .answers .answer-box .answer-btn:hover:not(.answer-correct, :disabled) {
   background-image: url("../../../images/questionAndAnswers/answer_selected.png");
   background-repeat: no-repeat;
   background-position: center;
 }
-.play-panel .container .lower-box .questionAndAnswers .answers .answer-box .answer-btn:hover:not(.answer-correct) .answer-option {
+.play-panel .container .lower-box .questionAndAnswers .answers .answer-box .answer-btn:hover:not(.answer-correct, :disabled) .answer-option {
   color: black;
 }
 .play-panel .container .lower-box .questionAndAnswers .answers .answer-box .answer-selected {
@@ -399,7 +398,7 @@
   font-size: 1.5em;
   top: 0%;
   left: 0%;
-  transform: translate(20%, 70%);
+  transform: translate(20%, 20%);
 }
 .wrapper .container #modal-end-game .modal-content .play-again-btn {
   position: fixed;
@@ -477,6 +476,101 @@
   background-position: center;
 }
 
+#modal-audience {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#modal-audience .modal-content {
+  position: fixed;
+  top: 0%;
+  left: 51%;
+  transform: translate(-49%, 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 355px;
+  height: 285px;
+  border: 3px solid white;
+  border-radius: 6px;
+  background-color: rgb(23, 5, 87);
+}
+#modal-audience .modal-content img {
+  position: absolute;
+  top: -30px;
+}
+#modal-audience .modal-content .modal-audience-answers {
+  margin-bottom: -30px;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+}
+#modal-audience .modal-content .modal-audience-answers .one,
+#modal-audience .modal-content .modal-audience-answers .two,
+#modal-audience .modal-content .modal-audience-answers .three,
+#modal-audience .modal-content .modal-audience-answers .four {
+  position: absolute;
+  width: 35px;
+  height: 120px;
+  background-color: rgb(23, 5, 87);
+  transition-property: height;
+  transition-duration: 2s;
+  margin-left: -1px;
+}
+#modal-audience .modal-content .modal-audience-answers #onePercentage,
+#modal-audience .modal-content .modal-audience-answers #twoPercentage,
+#modal-audience .modal-content .modal-audience-answers #threePercentage,
+#modal-audience .modal-content .modal-audience-answers #fourPercentage {
+  position: absolute;
+  top: 110px;
+  color: white;
+  font-size: 1rem;
+  transition-property: top;
+  transition-duration: 2s;
+  margin-top: 50px;
+  text-align: center;
+}
+#modal-audience .modal-content .modal-audience-answers .bar {
+  width: 30px;
+  height: 100px;
+  background-image: url("/images/hints/bar.jpg");
+  margin-top: 1px;
+}
+#modal-audience .modal-content .modal-audience-answers .answerMark {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+#modal-audience .modal-content .close-audience-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -22px;
+  color: white;
+  font-size: 1.1rem;
+  text-shadow: 0px 1px 3px #000000;
+  cursor: pointer;
+  width: 195px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  background-image: url("../../../images/button.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -502,6 +596,17 @@ body {
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#game-sounds-btn {
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
 }
 
 /*# sourceMappingURL=styles.css.map */

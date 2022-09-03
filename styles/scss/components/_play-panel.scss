@@ -110,15 +110,17 @@
 
 						.hint-taken {
 							position: absolute;
-							top: 8px;
-							left: 9px;
+							top: 5px;
+							left: 1px;
+							width: 90px;
 
 							border-radius: 50%;
-							padding: 8px;
-							margin: -8px 0 0 -9px;
+							// margin: -8px 0 0 -9px;
 
 							display: none;
 							cursor: not-allowed;
+
+							// border: 1px solid yellow;
 						}
 					}
 				}
@@ -279,7 +281,7 @@
 								color: #ffb300;
 							}
 
-							&:hover:not(.answer-correct) {
+							&:hover:not(.answer-correct, :disabled) {
 								.answer-option {
 									color: black;
 								}

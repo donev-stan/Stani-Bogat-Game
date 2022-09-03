@@ -13,7 +13,7 @@ const renderFiftyFiftyResult = () => {
 		if (!answers.includes(answerText)) {
 			answerBtn.textContent = "";
 			answerBtn.disabled = true;
-			answerBtn.style.cursor = "not-allowed";
+			answerBtn.style.cursor = "auto";
 		}
 	});
 };

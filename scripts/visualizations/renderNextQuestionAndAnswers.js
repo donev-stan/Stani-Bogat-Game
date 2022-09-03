@@ -17,8 +17,6 @@ const renderNextQuestionAndAnswers = () => {
 
 	if (questions.length === 1) fetchQuestions(getNextStageDifficulty());
 
-	console.log(`Correct Answer: \n ${currentQuestion.correct_answer}`);
-
 	questionAndAnswers.question().innerHTML = currentQuestion.question;
 
 	const answerBtns = questionAndAnswers.answers();
@@ -28,6 +26,7 @@ const renderNextQuestionAndAnswers = () => {
 	answerBtns.forEach((btn, i) => {
 		if (currentQuestion.answers[i] === currentQuestion.correct_answer) {
 			currentQuestion.correct_answer_option = options[i];
+			console.log(`Correct Answer: \n ${currentQuestion.correct_answer_option}`);
 		}
 
 		btn.innerHTML = renderAnswer(options[i], currentQuestion.answers[i]);

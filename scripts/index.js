@@ -1,7 +1,4 @@
 import attachEventListeners from "./eventListeners.js";
-import startGame from "./gameLogic/gameStart.js";
+import {} from "./variables.js";
 
-window.onload = () => {
-	attachEventListeners();
-	// startGame();
-};
+window.onload = () => attachEventListeners();

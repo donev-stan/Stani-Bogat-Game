@@ -5,6 +5,9 @@ const startPanelElements = {
 const mainElements = {
 	start_panel: () => document.querySelector(".start-panel"),
 	play_panel: () => document.querySelector(".play-panel"),
+
+	stopGameBtn: () => document.getElementById("stop-game-btn"),
+	gameSoundsBtn: () => document.getElementById("game-sounds-btn"),
 };
 
 const questionAndAnswers = {
@@ -45,6 +48,9 @@ const modalElements = {
 	modalCallAfriendHint: () => document.getElementById("modal-call-a-friend"),
 	modalCallAfriendText: () => document.querySelector(".call-a-friend-text"),
 	modalCallAfriendCloseBtn: () => document.querySelector(".close-call-a-friend-modal"),
+
+	modalAskAudienceHint: () => document.getElementById("modal-audience"),
+	modalAskAudienceCloseBtn: () => document.querySelector(".close-audience-modal"),
 };
 
 export { startPanelElements, mainElements, questionAndAnswers, stageElements, hintElements, modalElements };

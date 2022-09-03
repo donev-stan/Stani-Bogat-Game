@@ -3,6 +3,7 @@
 
 @use "./components/modal-end-game";
 @use "./components/modal-call-a-friend";
+@use "./components/modal-audience";
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap");
 
@@ -32,4 +33,15 @@ body {
 	-moz-user-select: none; /* Old versions of Firefox */
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#game-sounds-btn {
+	width: 50px;
+	border-radius: 50%;
+	border: 2px solid white;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	cursor: pointer;
+	box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
 }

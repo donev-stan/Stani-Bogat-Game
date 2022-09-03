@@ -1,0 +1,100 @@
+@use "../abstracts/index.scss" as *;
+
+#modal-audience {
+	@include modalProperties;
+
+	.modal-content {
+		@include modalContentProperties;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 355px;
+		height: 285px;
+
+		border: 3px solid white;
+		border-radius: 6px;
+
+		background-color: rgb(23, 5, 87);
+
+		img {
+			position: absolute;
+			top: -30px;
+		}
+
+		.modal-audience-answers {
+			margin-bottom: -30px;
+			text-align: center;
+			color: white;
+			font-size: 1rem;
+
+			display: flex;
+			justify-content: space-around;
+
+			width: 250px;
+
+			.one,
+			.two,
+			.three,
+			.four {
+				position: absolute;
+				width: 35px;
+				height: 120px;
+				background-color: rgb(23, 5, 87);
+				transition-property: height;
+				transition-duration: 2s;
+				margin-left: -1px;
+			}
+
+			#onePercentage,
+			#twoPercentage,
+			#threePercentage,
+			#fourPercentage {
+				position: absolute;
+				top: 110px;
+				color: white;
+				font-size: 1rem;
+				transition-property: top;
+				transition-duration: 2s;
+				margin-top: 50px;
+				text-align: center;
+			}
+
+			.bar {
+				width: 30px;
+				height: 100px;
+				background-image: url("/images/hints/bar.jpg");
+				margin-top: 1px;
+			}
+
+			.answerMark {
+				color: #fff;
+				font-size: 1rem;
+				text-align: center;
+				margin-top: 20px;
+			}
+		}
+
+		.close-audience-modal {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			position: absolute;
+			bottom: -22px;
+
+			color: white;
+			font-size: 1.1rem;
+			text-shadow: $textShadow;
+			cursor: pointer;
+
+			width: 195px;
+			height: 42px;
+
+			border: none;
+			background: transparent;
+			@include backgroundImage("../../../images/button.png");
+		}
+	}
+}

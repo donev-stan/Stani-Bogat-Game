@@ -5,7 +5,6 @@ const renderCallAfriendResult = (message) => {
 	displayHintModal();
 
 	setModalText(message);
-	console.log(message);
 };
 
 const displayHintTaken = () => {

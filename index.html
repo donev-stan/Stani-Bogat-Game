@@ -17,20 +17,67 @@
     <div class="wrapper unselectable">
         <div class="container">
 
+            <img src="./images/unmute.png" id="game-sounds-btn">
+
             <div id="modal-end-game">
                 <div class="modal-content">
                     <img src="./images/end_game.png">
 
                     <div class="modal-text">
                         <p>Sorry,</p>
-                        <p>Wrong answer.</p>
+                        <p>Game over.</p>
                         <p>Try again!</p>
+                        <br />
+                        <p>You left with:</p>
+                        $ <span id="money-to-go">0</span>
                     </div>
 
                     <div class="play-again-btn">
                         <p>New Game</p>
                     </div>
 
+                </div>
+            </div>
+
+            <div id="modal-audience">
+                <div class="modal-content">
+                    <img src="./images/hints/audience.png">
+
+                    <div class="modal-audience-answers">
+                        <div class="firstElement">
+                            <div class="one" id="one"></div>
+                            <div class="bar">
+                                <div id="onePercentage"></div>
+                            </div>
+                            <div class="answerMark">A</div>
+                        </div>
+                        <div class="secondElement">
+                            <div class="two" id="two"></div>
+                            <div class="bar">
+                                <div id="twoPercentage"></div>
+                            </div>
+                            <div class="answerMark">B</div>
+                        </div>
+                        <div class="thirdElement">
+                            <div class="three" id="three"></div>
+                            <div class="bar">
+                                <div id="threePercentage"></div>
+                            </div>
+                            <div class="answerMark">C</div>
+                        </div>
+                        <div class="fourthElement">
+                            <div class="four" id="four"></div>
+                            <div class="bar">
+                                <div id="fourPercentage"></div>
+                            </div>
+                            <div class="answerMark">D</div>
+                        </div>
+
+                    </div>
+
+                    <div class="close-audience-modal">
+                        <p>Thanks!</p>
+                    </div>
                 </div>
             </div>
 
@@ -88,21 +135,21 @@
 
                         <div class="stages-box">
                             <div class="stages">
-                                <div class="stage stage-15">15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 000 лв</div>
-                                <div class="stage stage-14">14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50 000 лв</div>
-                                <div class="stage stage-13">13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30 000 лв</div>
-                                <div class="stage stage-12">12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20 000 лв</div>
-                                <div class="stage stage-11">11 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10 000 лв</div>
-                                <div class="stage stage-10">10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 000 лв</div>
-                                <div class="stage stage-9">&nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 000 лв</div>
-                                <div class="stage stage-8">&nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 000 лв</div>
-                                <div class="stage stage-7">&nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 500 лв</div>
-                                <div class="stage stage-6">&nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1000 лв</div>
-                                <div class="stage stage-5">&nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 500 лв</div>
-                                <div class="stage stage-4">&nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 лв</div>
-                                <div class="stage stage-3">&nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 300 лв</div>
-                                <div class="stage stage-2">&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 200 лв</div>
-                                <div class="stage stage-1 stage-active">&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100 лв
+                                <div class="stage stage-15">15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 100 000</div>
+                                <div class="stage stage-14">14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 50 000</div>
+                                <div class="stage stage-13">13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 30 000</div>
+                                <div class="stage stage-12">12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 20 000</div>
+                                <div class="stage stage-11">11 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 10 000</div>
+                                <div class="stage stage-10">10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 5 000</div>
+                                <div class="stage stage-9">&nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 3 000</div>
+                                <div class="stage stage-8">&nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 2 000</div>
+                                <div class="stage stage-7">&nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1 500</div>
+                                <div class="stage stage-6">&nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1000</div>
+                                <div class="stage stage-5">&nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 500</div>
+                                <div class="stage stage-4">&nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 400</div>
+                                <div class="stage stage-3">&nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 300</div>
+                                <div class="stage stage-2">&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 200</div>
+                                <div class="stage stage-1 stage-active">&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 100
                                 </div>
                             </div>
                         </div>

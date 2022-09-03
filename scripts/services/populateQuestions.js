@@ -22,7 +22,7 @@ const transformData = (data) => {
 const shuffleAnswers = (transformed_questions) => {
 	return transformed_questions.map((question) => ({
 		...question,
-		answers: [...question.answers].sort(() => Math.random() - 0.5),
+		answers: [...question.answers].sort((a, b) => a.localeCompare(b)),
 	}));
 };
 

@@ -1,3 +1,5 @@
+import playCorrectSoundAtStage from "../music/playSoundAtStage.js";
+import { loadCorrectAnswer, loadFirstStageAudio, loadWrongAnswer } from "../music/sounds.js";
 import {
 	getCurrentQuestion,
 	getCurrentStage,
@@ -25,6 +27,7 @@ const checkAnswer = (event, chosenAnswer) => {
 			incrementCurrentStage();
 
 			displayCorrectAnswer(selectedBtn);
+			loadCorrectAnswer().play();
 
 			if (getCurrentStage() === 6) {
 				console.log("You secured a price! 500лв");
@@ -32,19 +35,32 @@ const checkAnswer = (event, chosenAnswer) => {
 				console.log("You secured a price! 5 000лв");
 			}
 
+			if (getCurrentStage() === 16) {
+				modalElements.modalEndGame().style.display = "flex";
+				document.getElementById("money-to-go").textContent = "100 000";
+			}
+
 			setTimeout(() => {
 				removeCorrectAnswer(selectedBtn);
 				renderNextQuestionAndAnswers();
-			}, 850);
+			}, 1000);
 		} else {
+			loadWrongAnswer().play();
 			questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.add("answer-correct");
 
 			modalElements.modalEndGame().style.display = "flex";
-			// setTimeout(() => {
-			// 	// questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.remove("correct");
-			// }, 1000);
+
+			if (getCurrentStage() <= 5) {
+				document.getElementById("money-to-go").textContent = "0";
+			} else if (getCurrentStage() > 5 && getCurrentStage() <= 10) {
+				document.getElementById("money-to-go").textContent = "500";
+			} else if (getCurrentStage() > 10 && getCurrentStage() < 15) {
+				document.getElementById("money-to-go").textContent = "5 000";
+			}
 		}
-	}, 300);
+	}, 500);
+
+	playCorrectSoundAtStage();
 };
 
 const disableAllButtons = () => {
