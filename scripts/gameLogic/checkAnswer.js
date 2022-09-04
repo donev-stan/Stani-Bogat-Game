@@ -30,28 +30,21 @@ const checkAnswer = (event, chosenAnswer) => {
 			displayCorrectAnswer(selectedBtn);
 			loadCorrectAnswer().play();
 
-			if (getCurrentStage() === 6) {
-				console.log("You secured a price! 500лв");
-			} else if (getCurrentStage() === 11) {
-				console.log("You secured a price! 5 000лв");
-			}
-
 			if (getCurrentStage() === 16) {
 				return renderEndGameModal("game-won");
 			}
+
+			playCorrectSoundAtStage();
 
 			setTimeout(() => {
 				removeCorrectAnswer(selectedBtn);
 				renderNextQuestionAndAnswers();
 			}, 1000);
 		} else {
-			loadWrongAnswer().play();
 			questionAndAnswers.correctAnswerBtn(correct_answer_option).classList.add("answer-correct");
 			renderEndGameModal("wrong-answer");
 		}
 	}, 500);
-
-	playCorrectSoundAtStage();
 };
 
 const disableAllButtons = () => {
