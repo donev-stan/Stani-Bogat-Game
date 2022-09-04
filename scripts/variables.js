@@ -5,7 +5,7 @@ import {
 	loadSecondStageAudio,
 	loadThirdStageAudio,
 } from "./music/sounds.js";
-import { mainElements, modalElements } from "./visualizations/elements.js";
+import { mainElements } from "./visualizations/elements.js";
 import renderEndGameModal from "./visualizations/renderEndGameModal.js";
 
 const questions = [];

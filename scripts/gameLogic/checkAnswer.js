@@ -1,5 +1,5 @@
 import playCorrectSoundAtStage from "../music/playSoundAtStage.js";
-import { loadCorrectAnswer, loadFirstStageAudio, loadWrongAnswer } from "../music/sounds.js";
+import { loadCorrectAnswer } from "../music/sounds.js";
 import {
 	getCurrentQuestion,
 	getCurrentStage,
@@ -7,7 +7,7 @@ import {
 	removeAnsweredQuestion,
 	timer,
 } from "../variables.js";
-import { modalElements, questionAndAnswers } from "../visualizations/elements.js";
+import { questionAndAnswers } from "../visualizations/elements.js";
 import renderEndGameModal from "../visualizations/renderEndGameModal.js";
 import renderNextQuestionAndAnswers from "../visualizations/renderNextQuestionAndAnswers.js";
 
