@@ -3,6 +3,7 @@ import { getCurrentStage, sounds, volume } from "../variables.js";
 const playCorrectSoundAtStage = () => {
 	switch (getCurrentStage()) {
 		case 1:
+			console.log("Im here again");
 			setTimeout(() => {
 				sounds.firstStageAudio.play();
 				sounds.firstStageAudio.volume = volume;
@@ -20,17 +21,17 @@ const playCorrectSoundAtStage = () => {
 			}, 2000);
 			break;
 
-		case 4:
+		case 5:
 			sounds.firstStageAudio.pause();
 			sounds.secondStageAudio.play();
 			break;
 
-		case 13:
+		case 10:
 			sounds.secondStageAudio.pause();
 			sounds.thirdStageAudio.play();
 			break;
 
-		case 14:
+		case 15:
 			sounds.thirdStageAudio.pause();
 			sounds.fourthStageAudio.play();
 			break;

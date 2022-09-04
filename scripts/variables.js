@@ -59,6 +59,13 @@ const sounds = {
 	fourthStageAudio,
 };
 
+const stopAllSounds = () => {
+	firstStageAudio.pause();
+	secondStageAudio.pause();
+	thirdStageAudio.pause();
+	fourthStageAudio.pause();
+};
+
 const toggleMuteSounds = () => {
 	if (volume !== 0) {
 		volume = 0;
@@ -110,4 +117,5 @@ export {
 	sounds,
 	volume,
 	toggleMuteSounds,
+	stopAllSounds,
 };

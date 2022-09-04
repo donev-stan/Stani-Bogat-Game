@@ -8,6 +8,7 @@ import renderFiftyFiftyResult from "../visualizations/renderFiftyFiftyResult.js"
 const askAudience = () => {
 	if (!hints.includes("ask-audience")) return;
 	hints.splice(hints.indexOf("ask-audience"), 1);
+
 	const answers = questionAndAnswers.answers();
 
 	const current_question = getCurrentQuestion();
@@ -19,14 +20,10 @@ const askAudience = () => {
 
 	audiencePercentage[current_question.correct_answer] = 50;
 
-	console.log(audiencePercentage);
-
 	for (let i = 0; i < 50; i++) {
 		let rndIndex = Math.floor(Math.random() * current_question.answers.length);
 		audiencePercentage[current_question.answers[rndIndex]] += 1;
 	}
-
-	console.log(audiencePercentage);
 
 	const audiencePercentageValues = Array.from(answers).map(({ textContent }) =>
 		textContent.slice(3) === "" ? 0 : audiencePercentage[textContent.slice(3)]
